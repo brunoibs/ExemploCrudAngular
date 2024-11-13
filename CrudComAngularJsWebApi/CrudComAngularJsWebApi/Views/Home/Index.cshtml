@@ -1,0 +1,123 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+
+
+<div ng-controller="crudCtrl">
+
+    <div class="divList">
+
+        <p>
+            <b><i>Todos os celulares cadastrados</i></b>
+        </p>
+
+        <table class="table table-hover">
+            <tr>
+                <td><b>Id</b></td>
+                <td><b>Marca</b></td>
+                <td><b>Modelo</b></td>
+                <td><b>Cor</b></td>
+                <td><b>Chip</b></td>
+                <td><b>Memoria Interna</b></td>
+            </tr>
+
+            <tr ng-repeat="celular in celurares">
+                <td>
+                    {{ celular.Id }}
+                </td>
+
+                <td>
+                    {{ celular.Marca }}
+                </td>
+
+                <td>
+                    {{ celular.Modelo }}
+                </td>
+
+                <td>
+                    {{ celular.Cor }}
+                </td>
+
+                <td>
+                    {{ celular.Chip }}
+                </td>
+
+                <td>
+                    {{ celular.MemoriaInterna }}
+                </td>
+
+                <td>
+                    <span ng-click="obterPorId(celular)" class="btn btn-primary">Alterar</span>
+                    <span ng-click="excluirCelular(celular)" class="btn btn-danger">Excluir</span>
+                </td>
+            </tr>
+
+        </table>
+
+
+
+    </div>
+
+
+    <span ng-click="incluirCelularDiv()" class="btn btn-default">
+        Incluir celular
+    </span>
+    
+  
+    
+    <div ng-show="divCelular">
+        <p class="divHead"></p>
+        <table class="table">
+            <tr>
+                <td><b><i>{{Acao}}Celular</i></b></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><b>Id</b></td>
+                <td>
+                    <input type="text" disabled="disabled" ng-model="celularId" class="form-control" />
+                </td>
+                <td><b>Marca</b></td>
+                <td>
+                    <input type="text" ng-model="Marca" class="form-control" />
+                </td>
+            </tr>
+            <tr>
+                <td><b>Modelo</b></td>
+                <td>
+                    <input type="text" ng-model="Modelo" class="form-control" />
+                </td>
+                <td><b>Cor</b></td>
+                <td>
+                    <input type="text" ng-model="Cor" class="form-control" />
+                </td>
+            </tr>
+            <tr>
+                <td><b>Memoria Interna</b></td>
+                <td>
+                    <input type="text" ng-model="MemoriaInterna" class="form-control" />
+                </td>
+                <td><b>Tipo de chip</b></td>
+                <td>
+                    <input type="text" ng-model="TipoChip" class="form-control" />
+                </td>
+
+            </tr>
+            <tr>
+
+                <td></td>
+                <td>
+                    <input type="button" class="btn btn-default" value="Salvar" ng-click="AdicionarAtualizarCelular()" />
+                    <input type="button" class="btn btn-danger" value="Cancelar" ng-click="Cancelar()" />
+                </td>
+            </tr>
+        </table>
+    </div>
+
+</div>
+
+
